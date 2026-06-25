@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
 import { createClient } from '@supabase/supabase-js'
-import { getPlanFromPriceId } from '@/lib/stripe'
+function getPlanFromPriceId(priceId: string) {
+  if (priceId === 'price_1TlyIuIsj1k0hZpb7QfIpbI7' || priceId === 'price_1TlyJtIsj1k0hZpbBKmzqCd4') return 'basic'
+  if (priceId === 'price_1TlyMPIsj1k0hZpbu6S6invn' || priceId === 'price_1TlyMfIsj1k0hZpbZ3UtkRps') return 'pro'
+  return 'free'
+}
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 const supabaseAdmin = createClient(
