@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { stripe } from '@/lib/stripe'
+import Stripe from 'stripe'
 import { createServerSupabaseClient } from '@/lib/supabase-server'
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 
 export async function POST(request: NextRequest) {
   try {
@@ -14,9 +16,8 @@ export async function POST(request: NextRequest) {
       .eq('id', user.id)
       .single()
 
-    if (!profile?.stripe_customer_id) {
-      return NextResponse.json({ error: 'No billing account found' }, { status: 400 })
-    }
+    if (!profile?.stripe_customer_id)
+      return NextResponse.json({ error: 'No billing account' }, { status: 400 })
 
     const session = await stripe.billingPortal.sessions.create({
       customer: profile.stripe_customer_id,
