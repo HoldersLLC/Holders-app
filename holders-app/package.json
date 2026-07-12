@@ -16,9 +16,11 @@
     "react-dom": "^18.2.0",
     "lucide-react": "^0.383.0",
     "date-fns": "^3.3.1",
-    "react-hot-toast": "^2.4.1",
-    "stripe": "14.0.0"
-  },
+"react-hot-toast": "^2.4.1",
+      "stripe": "14.0.0",
+      "resend": "^3.0.0",
+      "@anthropic-ai/sdk": "^0.24.0"
+    },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
