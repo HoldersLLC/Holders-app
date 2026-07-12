@@ -64,17 +64,17 @@ export default function Sidebar({ userName }: { userName: string }) {
 
       {/* User */}
       {/* Back to main site */}
-      <div className="px-3 pb-2">
-        
-          href="https://holders.llc"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium text-slate-400 hover:text-white hover:bg-surface-muted transition-colors w-full"
-        >
-          <ExternalLink className="w-4 h-4" />
-          holders.llc
-        </a>
-      </div>
+    <div className="px-3 pb-2">
+          <a          
+            href="https://holders.llc"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium text-slate-400 hover:text-white hover:bg-surface-muted transition-colors w-full"
+          >
+            <ExternalLink className="w-4 h-4" />
+            holders.llc
+          </a>
+        </div>
       <div className="px-3 py-4 border-t border-surface-border space-y-0.5">
         <div className="flex items-center gap-3 px-3 py-2 rounded-lg">
           <div className="w-7 h-7 rounded-full bg-brand-500/30 flex items-center justify-center text-brand-400 text-xs font-bold flex-shrink-0">
