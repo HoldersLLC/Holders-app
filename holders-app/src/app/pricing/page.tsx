@@ -1,4 +1,5 @@
 'use client'
+import { Suspense } from 'react'
 import { useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Shield, Check, Zap } from 'lucide-react'
@@ -10,7 +11,7 @@ const PRICE_IDS = {
   pro_annual:    'price_1TlyMfIsj1k0hZpbZ3UtkRps',
 }
 
-export default function PricingPage() {
+function PricingPage() {
   const [billing, setBilling] = useState<'monthly' | 'annual'>('monthly')
   const [loading, setLoading] = useState<string | null>(null)
   const router = useRouter()
@@ -145,5 +146,12 @@ export default function PricingPage() {
         <p className="text-center text-slate-500 text-sm mt-8">Cancel anytime. No contracts.</p>
       </div>
     </div>
+  )
+}
+export default function PricingPageWrapper() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-surface" />}>
+      <PricingPage />
+    </Suspense>
   )
 }
