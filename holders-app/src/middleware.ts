@@ -9,7 +9,7 @@ const BASIC_ROUTES = ['/range-sessions', '/documents']
 const PRO_ROUTES = ['/reports']
 
 // Routes always accessible (free tier + unauthed)
-const PUBLIC_ROUTES = ['/auth/login', '/auth/signup', '/pricing', '/api/webhooks']
+const PUBLIC_ROUTES = ['/auth/login', '/auth/signup', '/auth/set-password', '/pricing', '/api/webhooks']
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
